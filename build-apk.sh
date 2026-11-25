@@ -7,10 +7,10 @@ npm run build
 if [ ! -d android ]; then node node_modules/@capacitor/cli/bin/capacitor add android; fi
 cp native/*.java android/app/src/main/java/com/holidayhomemanager/app/
 node node_modules/@capacitor/cli/bin/capacitor sync android
-sed -i 's/versionCode 1/versionCode 5/' android/app/build.gradle
-sed -i 's/versionName "1.0"/versionName "0.4.0"/' android/app/build.gradle
+sed -i 's/versionCode 1/versionCode 6/' android/app/build.gradle
+sed -i 's/versionName "1.0"/versionName "0.5.0"/' android/app/build.gradle
 (cd android && ./gradlew assembleDebug)
-cp android/app/build/outputs/apk/debug/app-debug.apk HolidayHomeManager_v0.4.0.apk
-unzip -t HolidayHomeManager_v0.4.0.apk
-unzip -l HolidayHomeManager_v0.4.0.apk | grep resources.arsc
-"$(find "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools" -name apksigner | sort -V | tail -1)" verify --verbose HolidayHomeManager_v0.4.0.apk
+cp android/app/build/outputs/apk/debug/app-debug.apk HolidayHomeManager_v0.5.0.apk
+unzip -t HolidayHomeManager_v0.5.0.apk
+unzip -l HolidayHomeManager_v0.5.0.apk | grep resources.arsc
+"$(find "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools" -name apksigner | sort -V | tail -1)" verify --verbose HolidayHomeManager_v0.5.0.apk
