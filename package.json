@@ -1,1 +1,1 @@
-{"name":"holiday-home-manager","version":"0.2.0","private":true,"scripts":{"build":"node --check www/app.js"},"dependencies":{"@capacitor/core":"^7.0.0","@capacitor/android":"^7.0.0","@capacitor/cli":"^7.0.0"}}
+{"name":"holiday-home-manager","version":"0.2.1","private":true,"scripts":{"build":"node --check www/app.js"},"dependencies":{"@capacitor/core":"^7.0.0","@capacitor/android":"^7.0.0","@capacitor/cli":"^7.0.0"}}
