@@ -1,0 +1,5 @@
+package com.holidayhomemanager.app;
+import android.app.*;import android.content.*;import android.os.Build;
+public class ReminderReceiver extends BroadcastReceiver {
+public void onReceive(Context c,Intent i){NotificationManager nm=c.getSystemService(NotificationManager.class);if(Build.VERSION.SDK_INT>=33&&c.checkSelfPermission("android.permission.POST_NOTIFICATIONS")!=android.content.pm.PackageManager.PERMISSION_GRANTED)return;nm.createNotificationChannel(new NotificationChannel("hhm_reminders","Promemoria immobili",NotificationManager.IMPORTANCE_DEFAULT));PendingIntent pi=PendingIntent.getActivity(c,0,new Intent(c,MainActivity.class),PendingIntent.FLAG_IMMUTABLE|PendingIntent.FLAG_UPDATE_CURRENT);nm.notify(i.getDataString().hashCode(),new Notification.Builder(c,"hhm_reminders").setSmallIcon(android.R.drawable.ic_dialog_info).setContentTitle("Holiday Home Manager").setContentText(i.getStringExtra("title")).setContentIntent(pi).setAutoCancel(true).build());}
+}
