@@ -1,7 +1,7 @@
 name: Android APK
 on:
   push:
-    branches: ['build/v0.6.0']
+    branches: ['build/v0.6.1']
   workflow_dispatch:
 jobs:
   build:
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: HolidayHomeManager
-          path: HolidayHomeManager_v0.6.0.apk
+          path: HolidayHomeManager_v0.6.1.apk
       - uses: actions/upload-artifact@v4
         if: always()
         with:
