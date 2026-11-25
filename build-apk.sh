@@ -23,10 +23,10 @@ if [ -n "${HHM_KEYSTORE_B64:-}" ]; then
   printf '%s' "$HHM_KEYSTORE_B64" | base64 -d > "$HOME/.android/debug.keystore"
   chmod 600 "$HOME/.android/debug.keystore"
 fi
-sed -i 's/versionCode 1/versionCode 7/' android/app/build.gradle
-sed -i 's/versionName "1.0"/versionName "0.6.0"/' android/app/build.gradle
+sed -i 's/versionCode 1/versionCode 8/' android/app/build.gradle
+sed -i 's/versionName "1.0"/versionName "0.6.1"/' android/app/build.gradle
 (cd android && ./gradlew assembleDebug)
-cp android/app/build/outputs/apk/debug/app-debug.apk HolidayHomeManager_v0.6.0.apk
-unzip -t HolidayHomeManager_v0.6.0.apk
-unzip -l HolidayHomeManager_v0.6.0.apk | grep resources.arsc
-"$(find "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools" -name apksigner | sort -V | tail -1)" verify --verbose HolidayHomeManager_v0.6.0.apk
+cp android/app/build/outputs/apk/debug/app-debug.apk HolidayHomeManager_v0.6.1.apk
+unzip -t HolidayHomeManager_v0.6.1.apk
+unzip -l HolidayHomeManager_v0.6.1.apk | grep resources.arsc
+"$(find "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools" -name apksigner | sort -V | tail -1)" verify --verbose HolidayHomeManager_v0.6.1.apk
