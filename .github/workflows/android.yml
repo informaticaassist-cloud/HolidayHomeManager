@@ -1,7 +1,7 @@
 name: Android APK
 on:
   push:
-    branches: ['build/v0.5.0']
+    branches: ['build/v0.6.0']
   workflow_dispatch:
 jobs:
   build:
@@ -24,10 +24,12 @@ jobs:
           test -f "$ANDROID_HOME/platforms/android-35/android.jar"
           test -x "$ANDROID_HOME/build-tools/35.0.0/apksigner"
       - run: bash build-apk.sh
+        env:
+          HHM_KEYSTORE_B64: ${{ secrets.HHM_KEYSTORE_B64 }}
       - uses: actions/upload-artifact@v4
         with:
           name: HolidayHomeManager
-          path: HolidayHomeManager_v0.5.0.apk
+          path: HolidayHomeManager_v0.6.0.apk
       - uses: actions/upload-artifact@v4
         if: always()
         with:
